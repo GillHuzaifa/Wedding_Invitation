@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#4a0e20" />
+  <meta name="color-scheme" content="light only" />
+  <meta name="supported-color-schemes" content="light" />
+  <meta name="description" content="The wedding invitation of Jaisha Shahab & Zarrar Jarrih." />
+  <title>Jaisha & Zarrar — Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amethysta&family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700;800&family=DM+Sans:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    (function () {
+      var ua = navigator.userAgent || "";
+      var samsung = /SamsungBrowser/i.test(ua);
+      document.documentElement.setAttribute("data-fixed-light-theme", "true");
+      if (samsung) document.documentElement.classList.add("samsung-browser");
+    }());
+  </script>
+</head>
+<body>
+  <div class="petal-layer" aria-hidden="true"></div>
+  <button class="music-control" id="musicControl" aria-label="Turn wedding music off" title="Wedding music" hidden>
+    <svg class="music-icon music-icon-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9.2c1 .8 1.5 1.8 1.5 2.8s-.5 2-1.5 2.8"/><path d="M18.7 6.8c1.7 1.4 2.5 3.1 2.5 5.2s-.8 3.8-2.5 5.2"/></svg>
+    <svg class="music-icon music-icon-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="m18 9 4 6"/><path d="m22 9-4 6"/></svg>
+  </button>
+  <audio id="weddingMusic" loop preload="none"></audio>
+
+  <main>
+    <!-- 01: LUXURY ENVELOPE -->
+    <section class="opening" id="opening" aria-label="Open invitation">
+      <div class="opening-aura" aria-hidden="true"></div>
+      <div class="envelope-stage">
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+          <div class="envelope-paper">
+            <div class="mini-ornament">✦</div>
+            <p>THE WEDDING INVITATION</p>
+            <strong>J &amp; Z</strong>
+            <span>21 · 12 · 2026</span>
+          </div>
+          <div class="envelope-flap"></div>
+          <div class="envelope-front"></div>
+          <button class="wax-seal" id="openSeal" aria-label="Tap to open invitation">
+            <span class="seal-script">Tap<br><em>to</em><br>open</span>
+          </button>
+        </div>
+        <p class="tap-hint">Tap the seal to open</p>
+      </div>
+    </section>
+
+    <!-- 02: MAIN CINEMATIC CARD -->
+    <section class="card-hero section-shell" id="invitation" aria-label="Wedding invitation">
+      <div class="hero-card reveal">
+        <div class="hero-scene" aria-hidden="true">
+          <video class="hero-video" id="heroVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" fetchpriority="high" poster="assets/hero-poster.jpg">
+            <source media="(max-width: 719px)" src="assets/bride-groom-hero-mobile.mp4" type="video/mp4" />
+            <source src="assets/bride-groom-hero.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-poster-fallback"></div>
+          <div class="hero-vignette"></div>
+          <div class="hero-light" aria-hidden="true"></div>
+          <div class="bird-flock flock-one"><i></i><i></i><i></i></div>
+          <div class="bird-flock flock-two"><i></i><i></i></div>
+        </div>
+
+        <div class="hero-frame"></div>
+        <div class="hero-content">
+          <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+          <div class="rule"><i></i><span>♥</span><i></i></div>
+          <p class="eyebrow">In The Name Of Allah, The Most Beneficial &amp; The Most Merciful.</p>
+          <p class="family-invite">Mr. Shahabuddin Shaikh &amp; Mrs. Reena Shaikh warmly invite you to celebrate the wedding of their beloved daughter.</p>
+          <div class="hero-names">
+            <h1>Jaisha</h1>
+            <div class="ampersand">&amp;</div>
+            <h2>Zarrar</h2>
+          </div>
+          <div class="hero-scroll">SCROLL <span>⌄</span></div>
+        </div>
+        <div class="hero-corner corner-tl"></div>
+        <div class="hero-corner corner-tr"></div>
+        <div class="hero-corner corner-bl"></div>
+        <div class="hero-corner corner-br"></div>
+      </div>
+    </section>
+
+    <!-- 03: SCRATCH REVEAL -->
+    <section class="reveal-date section-shell" id="dateReveal">
+      <div class="section-kicker">A date to remember</div>
+      <h2 class="section-title">Something beautiful awaits</h2>
+      <p class="section-subtitle">Scratch gently to reveal the first celebration.</p>
+      <div class="scratch-card" id="scratchCard">
+        <div class="scratch-underlay">
+          <span class="revealed-date">21st December 2026</span>
+          <strong>NIKAH &amp; MEHNDI</strong>
+          <small>Wildrice Lawn, Serena Hotel · Kehkishan Hall</small>
+        </div>
+        <canvas id="scratchCanvas" aria-label="Scratch to reveal the wedding date"></canvas>
+      </div>
+      <p class="scratch-status" id="scratchStatus">Use your finger or mouse</p>
+    </section>
+
+    <!-- 04: EVENTS -->
+    <section class="celebrations section-shell" id="events">
+      <div class="section-kicker">The celebrations</div>
+      <h2 class="section-title">Three moments, one beautiful journey</h2>
+      <div class="event-grid" id="eventGrid"></div>
+    </section>
+
+    <!-- 05: PROGRAM TIMELINE -->
+    <section class="timeline-section section-shell">
+      <div class="timeline-emblem" aria-hidden="true">◷</div>
+      <h2 class="section-title script-title">Program Timeline</h2>
+      <div class="section-divider"><span>♥</span></div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- 06: VENUES -->
+    <section class="venues section-shell" id="venues">
+      <div class="section-kicker">Where we gather</div>
+      <h2 class="section-title">Venue details</h2>
+      <div class="venue-list" id="venueList"></div>
+    </section>
+
+    <!-- 07: COUNTDOWN -->
+    <section class="countdown-section section-shell">
+      <div class="countdown-card">
+        <div class="section-kicker">The days are getting closer</div>
+        <h2 class="section-title">Counting down to forever</h2>
+        <p class="countdown-note">Until 21st December 2026 · Nikah &amp; Mehndi</p>
+        <div class="countdown" id="countdown">
+          <div><strong data-unit="days">00</strong><span>Days</span></div>
+          <div><strong data-unit="hours">00</strong><span>Hours</span></div>
+          <div><strong data-unit="minutes">00</strong><span>Minutes</span></div>
+          <div><strong data-unit="seconds">00</strong><span>Seconds</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08: CLOSING -->
+    <section class="closing section-shell">
+      <div class="closing-card reveal">
+        <div class="closing-ornament">✦</div>
+        <p>With love,</p>
+        <h2>Mr. &amp; Mrs. Shahabuddin Shaikh</h2>
+        
+        <div class="closing-rule"><i></i><span>♡</span><i></i></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
