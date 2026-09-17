@@ -20,7 +20,6 @@ LUXURY INVITATION REDESIGN SYSTEM
   
   --line-divider: rgba(198, 161, 91, 0.4);
   --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.25);
-  --maroon-overlay: linear-gradient(180deg, rgba(74, 14, 32, 0.75) 0%, rgba(45, 8, 20, 0.9) 100%);
 
   /* TYPOGRAPHY */
   --font-heading: "Cormorant Garamond", Georgia, serif;
@@ -243,11 +242,11 @@ body::before, body::after {
 
 /* 03: SHARED SECTIONS */
 .section-shell {
-  background: var(--maroon-overlay) !important;
+  background: var(--light-cream) !important;
 }
 .section-title {
   font-family: var(--font-heading) !important;
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   font-weight: 400 !important;
   font-size: clamp(30px, 6vw, 48px) !important;
   letter-spacing: 0.01em !important;
@@ -263,7 +262,7 @@ body::before, body::after {
   text-transform: uppercase !important;
 }
 .section-subtitle {
-  color: var(--light-cream) !important;
+  color: var(--text-dark) !important;
   opacity: 0.8 !important;
   font-family: var(--font-body) !important;
   font-size: clamp(13px, 1.5vw, 15px) !important;
@@ -280,7 +279,7 @@ body::before, body::after {
 
 /* 04: SCRATCH REVEAL */
 .reveal-date {
-  background: var(--maroon-overlay) !important;
+  background: var(--cream) !important;
 }
 .reveal-date.section-shell {
   min-height: max-content !important; /* MICRO-POLISH: Remove huge empty gap */
@@ -288,7 +287,7 @@ body::before, body::after {
   padding-bottom: clamp(50px, 8vh, 80px) !important;
 }
 .scratch-card {
-  background: var(--maroon-overlay) !important;
+  background: var(--light-cream) !important;
   border-color: var(--line-divider) !important;
   box-shadow: var(--shadow-soft) !important;
   width: 100% !important;
@@ -304,7 +303,7 @@ body::before, body::after {
   border-color: var(--line-divider) !important;
 }
 .scratch-underlay {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -320,13 +319,13 @@ body::before, body::after {
   margin: 8px 0 !important;
 }
 .revealed-date {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-size: clamp(24px, 6vw, 36px) !important;
   line-height: 1.1 !important;
 }
 .scratch-status {
-  color: var(--light-cream) !important;
+  color: var(--text-dark) !important;
   opacity: 0.8 !important;
   font-size: 13px !important;
   margin-top: 5px !important;
@@ -335,7 +334,7 @@ body::before, body::after {
 
 /* 05: CELEBRATIONS / EVENTS */
 .celebrations {
-  background: var(--maroon-overlay) !important;
+  background: var(--deep-mehroon) !important;
 }
 .celebrations .section-title {
   color: var(--cream) !important;
@@ -345,10 +344,10 @@ body::before, body::after {
   opacity: 0.8 !important;
 }
 .event-card {
-  background: var(--maroon-overlay) !important;
+  background: var(--light-cream) !important;
   border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
-  color: var(--light-cream) !important;
+  color: var(--text-dark) !important;
 }
 .event-card::after {
   border-color: rgba(198, 161, 91, 0.2) !important;
@@ -357,7 +356,7 @@ body::before, body::after {
   color: var(--gold-accent) !important;
 }
 .event-card h3 {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
   font-size: clamp(24px, 5vw, 32px) !important;
@@ -368,66 +367,66 @@ body::before, body::after {
   background: var(--line-divider) !important;
 }
 .event-venue {
-  color: var(--light-cream) !important;
+  color: var(--dark-mehroon) !important;
   opacity: 0.9 !important;
 }
 .event-card-combined .event-subevent strong {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
 }
 .event-hosts {
-  color: var(--light-cream) !important;
+  color: var(--dark-mehroon) !important;
   opacity: 0.9 !important;
 }
 
 /* 06: TIMELINE */
 .timeline-section {
-  background: var(--maroon-overlay) !important;
+  background: var(--cream) !important;
 }
 .timeline-emblem, .script-title {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
 }
 .timeline::before {
   background: var(--line-divider) !important;
 }
 .timeline-dot {
   border-color: var(--gold-accent) !important;
-  background: var(--mehroon) !important;
+  background: var(--light-cream) !important;
   box-shadow: 0 0 0 4px rgba(198, 161, 91, 0.15) !important;
 }
 .timeline-date {
   color: var(--gold-accent) !important;
 }
 .timeline-body h3 {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
   font-size: clamp(22px, 5vw, 30px) !important;
   margin-bottom: 5px !important;
 }
 .timeline-subitem strong {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 500 !important;
   font-size: 18px !important;
 }
 .timeline-body p {
-  color: var(--light-cream) !important;
+  color: var(--text-dark) !important;
   opacity: 0.8 !important;
 }
 .timeline-time {
-  color: var(--light-cream) !important;
+  color: var(--text-dark) !important;
 }
 
 /* 07: VENUES */
 .venues {
-  background: var(--maroon-overlay) !important;
+  background: var(--deep-mehroon) !important;
 }
 .venues .section-title, .venues .section-subtitle {
   color: var(--cream) !important;
 }
 .venues .section-subtitle { opacity: 0.8 !important; }
 .venue-card {
-  background: var(--maroon-overlay) !important;
+  background: var(--light-cream) !important;
   border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
 }
@@ -435,7 +434,7 @@ body::before, body::after {
   color: var(--gold-accent) !important;
 }
 .venue-copy h3 {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
   font-size: clamp(26px, 6vw, 34px) !important;
@@ -443,12 +442,12 @@ body::before, body::after {
   margin-bottom: 8px !important;
 }
 .venue-copy strong {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   text-shadow: none !important;
   font-weight: 500 !important;
 }
 .venue-address {
-  color: var(--light-cream) !important;
+  color: var(--text-dark) !important;
   text-shadow: none !important;
   opacity: 0.8 !important;
 }
@@ -460,7 +459,7 @@ body::before, body::after {
 }
 .location-btn {
   border: 1px solid var(--gold-accent) !important;
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   background: transparent !important;
 }
 .location-btn:hover {
@@ -469,7 +468,7 @@ body::before, body::after {
 
 /* 08: COUNTDOWN */
 .countdown-section {
-  background: var(--maroon-overlay) !important;
+  background: var(--cream) !important;
 }
 .countdown-card {
   border-color: var(--line-divider) !important;
@@ -478,17 +477,17 @@ body::before, body::after {
   border-color: var(--line-divider) !important;
 }
 .countdown strong {
-  color: var(--cream) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
 }
 .countdown span {
-  color: var(--light-cream) !important;
+  color: var(--text-dark) !important;
   opacity: 0.8 !important;
   letter-spacing: 0.15em !important;
 }
 .countdown-note {
-  color: var(--light-cream) !important;
+  color: var(--text-dark) !important;
   opacity: 0.8 !important;
 }
 
