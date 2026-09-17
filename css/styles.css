@@ -392,8 +392,8 @@ body.invitation-open .hero-light { animation: heroLightRise 2.1s cubic-bezier(.1
   .card-hero { padding-left: 24px; padding-right: 24px; }
   .hero-card { width: min(100%, 1400px); height: auto; aspect-ratio: 16 / 9; min-height: 0; }
   .card-hero { padding: 28px 30px 70px; }
-  .event-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-  .venue-list { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
+  .event-grid { grid-template-columns: repeat(2, minmax(0, 420px)); justify-content: center; gap: 18px; }
+  .venue-list { grid-template-columns: repeat(2, minmax(0, 420px)); justify-content: center; align-items: stretch; }
   .venue-card { display: block; padding: 32px 24px; }
   .venue-card-combined { grid-column: span 1; }
   .venue-index { margin-bottom: 22px; }
