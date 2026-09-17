@@ -1,0 +1,469 @@
+/* 
+==================================================
+LUXURY INVITATION REDESIGN SYSTEM
+================================================== 
+*/
+
+:root {
+  /* COLOR SYSTEM: Ivory + Champagne + Muted Gold */
+  --bg-primary: #FDFBF7;
+  --bg-secondary: #F7F3EA;
+  --bg-accent: #F2EBE1;
+  --gold-accent: #B89E6E;
+  --gold-light: #D4C3A3;
+  --gold-muted: #8E7A5A;
+  --text-dark: #2A2826;
+  --text-muted: #6B6358;
+  --line-divider: rgba(184, 158, 110, 0.4);
+  --shadow-soft: 0 12px 40px rgba(42, 40, 38, 0.08);
+
+  /* TYPOGRAPHY */
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+  --font-script: "Great Vibes", "Italianno", cursive;
+  --font-arabic: "Amethysta", "Cinzel", serif;
+}
+
+/* OVERRIDE BODY */
+html {
+  background-color: var(--bg-primary) !important;
+}
+body {
+  background: var(--bg-primary) !important;
+  color: var(--text-dark) !important;
+  font-family: var(--font-body) !important;
+}
+
+body::before, body::after {
+  display: none !important; /* Remove weird fixed borders/grain from previous */
+}
+
+/* 01: LUXURY ENVELOPE (OPENING) */
+.opening {
+  background: var(--bg-primary) !important;
+}
+.opening::before, .opening::after {
+  border-color: var(--line-divider) !important;
+}
+.opening.is-revealing {
+  background: var(--bg-secondary) !important;
+}
+.envelope-back, .envelope-front, .envelope-flap {
+  background: var(--bg-accent) !important;
+  border-color: var(--line-divider) !important;
+}
+.envelope-paper {
+  background: #FFFFFF !important;
+  border-color: var(--line-divider) !important;
+  color: var(--text-dark) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.envelope-paper p {
+  color: var(--text-muted) !important;
+  letter-spacing: 0.3em !important;
+}
+.envelope-paper strong {
+  color: var(--text-dark) !important;
+  font-family: var(--font-heading) !important;
+}
+.wax-seal {
+  background: var(--gold-accent) !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  color: #FFFFFF !important;
+}
+.tap-hint {
+  color: var(--text-muted) !important;
+}
+
+/* 02: MAIN CINEMATIC CARD */
+.card-hero, .hero-card {
+  background: var(--bg-primary) !important;
+}
+.hero-card {
+  border-radius: 0 !important;
+  border: 1px solid var(--line-divider) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.hero-video {
+  /* Keep video but remove the heavy red filter */
+  filter: saturate(0.85) contrast(1.1) brightness(1.1) !important;
+  opacity: 0.25 !important; /* Make it subtle to serve as animated texture */
+  background: var(--bg-primary) !important;
+}
+.hero-vignette {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(253, 251, 247, 0.6) 40%, var(--bg-primary) 100%) !important;
+}
+.hero-scene::after {
+  display: none !important;
+}
+.hero-frame {
+  border: 1px solid var(--line-divider) !important;
+}
+.hero-frame::before {
+  border: 1px solid rgba(184, 158, 110, 0.15) !important;
+}
+.hero-light {
+  background: radial-gradient(circle at 50% 48%, rgba(255,255,255,0.7), transparent 17%, rgba(255,255,255,0.3) 32%, transparent 52%) !important;
+}
+
+/* Fix Bismillah Alignment and Spacing */
+.hero-content {
+  justify-content: center !important;
+  padding: 40px !important;
+}
+.hero-content .bismillah {
+  font-family: var(--font-arabic) !important;
+  color: var(--text-dark) !important;
+  font-size: clamp(32px, 4.5vw, 50px) !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-fill-color: var(--text-dark) !important;
+  margin-bottom: 8px !important;
+  letter-spacing: normal !important;
+  font-weight: 500 !important;
+}
+.hero-content .eyebrow {
+  font-family: var(--font-body) !important;
+  color: var(--text-muted) !important;
+  font-size: clamp(12px, 1.5vw, 16px) !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-fill-color: var(--text-muted) !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 20px !important;
+}
+.hero-content .rule {
+  margin: 0 auto 30px !important;
+}
+.hero-content .rule i {
+  background: linear-gradient(90deg, transparent, var(--gold-accent)) !important;
+}
+.hero-content .rule i:last-child {
+  background: linear-gradient(90deg, var(--gold-accent), transparent) !important;
+}
+.hero-content .rule span {
+  color: var(--gold-accent) !important;
+  font-size: 14px !important;
+}
+.hero-content .family-invite {
+  color: var(--text-dark) !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(16px, 2vw, 22px) !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-fill-color: var(--text-dark) !important;
+  margin-bottom: 40px !important;
+  max-width: 800px !important;
+}
+.hero-content .hero-names {
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+.hero-content .hero-names h1, .hero-content .hero-names h2 {
+  font-family: var(--font-script) !important;
+  color: var(--text-dark) !important;
+  font-size: clamp(70px, 12vw, 130px) !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: var(--text-dark) !important;
+  line-height: 0.9 !important;
+  font-weight: 400 !important;
+}
+.hero-content .ampersand {
+  font-family: var(--font-heading) !important;
+  color: var(--gold-accent) !important;
+  font-size: clamp(35px, 5vw, 55px) !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: var(--gold-accent) !important;
+  margin: 15px 0 !important;
+  font-style: italic !important;
+}
+.hero-content .parent-line {
+  color: var(--text-muted) !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(14px, 1.8vw, 18px) !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-fill-color: var(--text-muted) !important;
+  margin-top: 15px !important;
+}
+.hero-content .hero-scroll {
+  color: var(--text-muted) !important;
+  -webkit-text-fill-color: var(--text-muted) !important;
+  text-shadow: none !important;
+}
+
+/* 03: SHARED SECTIONS */
+.section-shell {
+  background: var(--bg-primary) !important;
+}
+.section-title {
+  font-family: var(--font-heading) !important;
+  color: var(--text-dark) !important;
+  font-weight: 400 !important;
+}
+.section-kicker {
+  color: var(--gold-accent) !important;
+  font-family: var(--font-body) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.25em !important;
+}
+.section-subtitle {
+  color: var(--text-muted) !important;
+  font-family: var(--font-body) !important;
+}
+.section-divider {
+  color: var(--gold-accent) !important;
+}
+.section-divider::before, .section-divider::after {
+  background: var(--line-divider) !important;
+}
+
+/* 04: SCRATCH REVEAL */
+.reveal-date {
+  background: var(--bg-primary) !important;
+}
+.scratch-card {
+  background: #FFFFFF !important;
+  border-color: var(--line-divider) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.scratch-card::before {
+  border-color: var(--line-divider) !important;
+}
+.scratch-underlay {
+  color: var(--text-dark) !important;
+}
+.scratch-underlay strong {
+  color: var(--gold-accent) !important;
+}
+.revealed-date {
+  color: var(--text-dark) !important;
+}
+.scratch-status {
+  color: var(--text-muted) !important;
+}
+
+/* 05: CELEBRATIONS / EVENTS */
+.celebrations {
+  background: var(--bg-secondary) !important;
+}
+.event-card {
+  background: #FFFFFF !important;
+  border: 1px solid var(--line-divider) !important;
+  box-shadow: var(--shadow-soft) !important;
+  color: var(--text-dark) !important;
+}
+.event-card::after {
+  border-color: rgba(184, 158, 110, 0.15) !important;
+}
+.event-number, .event-date, .event-time-card {
+  color: var(--gold-accent) !important;
+}
+.event-card h3 {
+  color: var(--text-dark) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 500 !important;
+}
+.event-rule, .event-subdivider {
+  background: var(--line-divider) !important;
+}
+.event-venue {
+  color: var(--text-muted) !important;
+}
+.event-card-combined .event-subevent strong {
+  color: var(--text-dark) !important;
+}
+.event-hosts {
+  color: var(--text-muted) !important;
+}
+
+/* 06: TIMELINE */
+.timeline-section {
+  background: var(--bg-primary) !important;
+}
+.timeline-emblem, .script-title {
+  color: var(--text-dark) !important;
+}
+.timeline::before {
+  background: var(--line-divider) !important;
+}
+.timeline-dot {
+  border-color: var(--gold-accent) !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 0 4px rgba(184, 158, 110, 0.15) !important;
+}
+.timeline-date {
+  color: var(--gold-accent) !important;
+}
+.timeline-body h3, .timeline-subitem strong {
+  color: var(--text-dark) !important;
+}
+.timeline-body p {
+  color: var(--text-muted) !important;
+}
+.timeline-time {
+  color: var(--text-dark) !important;
+}
+
+/* 07: VENUES */
+.venues {
+  background: var(--bg-secondary) !important;
+}
+.venue-card {
+  background: #FFFFFF !important;
+  border-color: var(--line-divider) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.venue-index, .venue-time, .qr-wrap {
+  color: var(--gold-accent) !important;
+}
+.venue-copy h3, .venue-copy strong {
+  color: var(--text-dark) !important;
+  text-shadow: none !important;
+}
+.venue-address {
+  color: var(--text-muted) !important;
+  text-shadow: none !important;
+}
+.venue-subdivider {
+  background: var(--line-divider) !important;
+}
+.qr-wrap img {
+  border-color: var(--line-divider) !important;
+}
+.location-btn {
+  border-color: var(--gold-accent) !important;
+  color: var(--text-dark) !important;
+  background: transparent !important;
+}
+.location-btn:hover {
+  background: rgba(184, 158, 110, 0.1) !important;
+}
+
+/* 08: COUNTDOWN */
+.countdown-section {
+  background: var(--bg-primary) !important;
+}
+.countdown-card {
+  border-color: var(--line-divider) !important;
+}
+.countdown div {
+  border-color: var(--line-divider) !important;
+}
+.countdown strong {
+  color: var(--text-dark) !important;
+}
+.countdown span {
+  color: var(--text-muted) !important;
+}
+.countdown-note {
+  color: var(--text-muted) !important;
+}
+
+/* 09: CLOSING */
+.closing {
+  background: var(--bg-secondary) !important;
+}
+.closing-card {
+  color: var(--text-dark) !important;
+}
+.closing-ornament, .closing-rule span {
+  color: var(--gold-accent) !important;
+}
+.closing-card h2 {
+  color: var(--text-dark) !important;
+  font-family: var(--font-script) !important;
+}
+.closing-card > span, .closing-card p {
+  color: var(--text-muted) !important;
+}
+.closing-rule i {
+  background: var(--line-divider) !important;
+}
+
+/* OTHER FIXES */
+.music-control {
+  background: rgba(255,255,255,0.8) !important;
+  border-color: var(--line-divider) !important;
+  color: var(--gold-accent) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.petal {
+  background: rgba(212, 195, 163, 0.4) !important;
+}
+.hero-corner {
+  border-color: var(--line-divider) !important;
+}
+
+/* MOBILE FIXES & ALIGNMENT OVERRIDES */
+@media (max-width: 719px) {
+  /* Reset crazy absolute positioning from previous styles */
+  .hero-content {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px 24px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  
+  .hero-content > * {
+    position: static !important;
+    width: auto !important;
+    max-width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+  }
+  
+  .hero-content .bismillah {
+    margin-top: 5vh !important;
+    margin-bottom: 5px !important;
+    font-size: 26px !important;
+  }
+  
+  .hero-content .eyebrow {
+    margin-bottom: 12px !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .hero-content .rule {
+    margin-bottom: 25px !important;
+    width: 60% !important;
+  }
+  
+  .hero-content .family-invite {
+    margin-bottom: 35px !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .hero-content .hero-names h1,
+  .hero-content .hero-names h2 {
+    font-size: clamp(55px, 16vw, 75px) !important;
+  }
+  
+  .hero-content .hero-names h2 + .parent-line {
+    margin-top: 15px !important;
+  }
+  
+  .hero-content .hero-scroll {
+    position: absolute !important;
+    bottom: 30px !important;
+    margin-top: auto !important;
+  }
+}
