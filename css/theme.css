@@ -105,13 +105,13 @@ body::before, body::after {
   box-shadow: var(--shadow-soft) !important;
 }
 .hero-video {
-  /* Soften the video in the dark mehroon background */
-  filter: saturate(0.85) contrast(1.1) brightness(0.6) !important;
-  opacity: 0.18 !important; /* MICRO-POLISH: Reduced floral background opacity */
+  /* Make video clearly visible while blending with mehroon */
+  filter: saturate(0.9) contrast(1.15) brightness(0.9) !important;
+  opacity: 0.45 !important;
   background: var(--dark-mehroon) !important;
 }
 .hero-vignette {
-  background: linear-gradient(180deg, var(--deep-mehroon) 0%, rgba(74, 19, 32, 0.4) 40%, var(--deep-mehroon) 100%) !important;
+  background: linear-gradient(180deg, rgba(74, 19, 32, 0.7) 0%, rgba(74, 19, 32, 0.1) 40%, rgba(74, 19, 32, 0.7) 100%) !important;
 }
 .hero-scene::after {
   display: none !important;
