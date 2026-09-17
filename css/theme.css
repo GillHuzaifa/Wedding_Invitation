@@ -58,19 +58,33 @@ body::before, body::after {
   color: var(--text-dark) !important;
   box-shadow: var(--shadow-soft) !important;
 }
-.envelope-paper p {
-  color: var(--text-muted) !important;
-  letter-spacing: 0.3em !important;
-}
-.envelope-paper strong {
-  color: var(--text-dark) !important;
-  font-family: var(--font-heading) !important;
-}
 .wax-seal {
   background: var(--gold-accent) !important;
   border-color: #FFFFFF !important;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
   color: #FFFFFF !important;
+}
+.envelope-paper p {
+  color: var(--text-muted) !important;
+  letter-spacing: 0.3em !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 5px !important;
+}
+.envelope-paper strong {
+  color: var(--text-dark) !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(38px, 6vw, 46px) !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 400 !important;
+}
+.envelope-paper span {
+  color: var(--gold-accent) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  margin-top: 10px !important;
+  font-family: var(--font-body) !important;
 }
 .tap-hint {
   color: var(--text-muted) !important;
@@ -170,7 +184,10 @@ body::before, body::after {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
+  justify-content: center !important;
   margin-bottom: 20px !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 .hero-content .hero-names h1, .hero-content .hero-names h2 {
   font-family: var(--font-script) !important;
