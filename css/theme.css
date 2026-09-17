@@ -452,10 +452,14 @@ body::before, body::after {
 }
 .closing-card p {
   color: var(--text-muted) !important;
-  margin-bottom: 24px !important;
+  margin-top: 20px !important;
+  margin-bottom: clamp(32px, 6vw, 54px) !important;
 }
 .closing-card > span {
   color: var(--text-muted) !important;
+}
+.closing-rule {
+  margin-top: clamp(35px, 6vw, 45px) !important;
 }
 .closing-rule i {
   background: var(--line-divider) !important;
