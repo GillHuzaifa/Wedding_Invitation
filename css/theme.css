@@ -444,9 +444,17 @@ body::before, body::after {
   font-family: var(--font-script) !important;
   font-size: clamp(55px, 10vw, 85px) !important;
   font-weight: 400 !important;
-  line-height: 1 !important;
+  line-height: 1.1 !important;
 }
-.closing-card > span, .closing-card p {
+.closing-title {
+  display: block !important;
+  margin-bottom: 8px !important;
+}
+.closing-card p {
+  color: var(--text-muted) !important;
+  margin-bottom: 24px !important;
+}
+.closing-card > span {
   color: var(--text-muted) !important;
 }
 .closing-rule i {
