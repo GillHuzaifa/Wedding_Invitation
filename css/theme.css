@@ -107,7 +107,7 @@ body::before, body::after {
 .hero-video {
   /* Soften the video in the dark mehroon background */
   filter: saturate(0.85) contrast(1.1) brightness(0.6) !important;
-  opacity: 0.3 !important;
+  opacity: 0.18 !important; /* MICRO-POLISH: Reduced floral background opacity */
   background: var(--dark-mehroon) !important;
 }
 .hero-vignette {
@@ -123,7 +123,8 @@ body::before, body::after {
   border: 1px solid rgba(198, 161, 91, 0.2) !important;
 }
 .hero-light {
-  background: radial-gradient(circle at 50% 48%, rgba(252, 248, 241, 0.15), transparent 30%, transparent 100%) !important;
+  /* MICRO-POLISH: Reduced center glow intensity */
+  background: radial-gradient(circle at 50% 48%, rgba(252, 248, 241, 0.10), transparent 25%, transparent 100%) !important;
 }
 
 /* Fix Bismillah Alignment and Spacing */
@@ -138,7 +139,7 @@ body::before, body::after {
   text-shadow: none !important;
   -webkit-text-stroke: 0 !important;
   -webkit-text-fill-color: var(--gold-accent) !important;
-  margin-bottom: 6px !important; /* Extremely tight gap */
+  margin-bottom: 16px !important; /* MICRO-POLISH: Increased gap for Bismillah */
   letter-spacing: normal !important;
   font-weight: 500 !important;
 }
@@ -197,7 +198,7 @@ body::before, body::after {
 .hero-content .hero-names h1, .hero-content .hero-names h2 {
   font-family: var(--font-script) !important;
   color: var(--light-cream) !important;
-  font-size: clamp(75px, 14vw, 140px) !important;
+  font-size: clamp(70px, 12vw, 125px) !important; /* MICRO-POLISH: Reduced name size */
   text-shadow: none !important;
   -webkit-text-fill-color: var(--light-cream) !important;
   line-height: 0.9 !important;
@@ -226,9 +227,14 @@ body::before, body::after {
   margin-top: 15px !important;
 }
 .hero-content .hero-scroll {
-  color: var(--gold-accent) !important;
-  -webkit-text-fill-color: var(--gold-accent) !important;
+  /* MICRO-POLISH: Improved scroll indicator readability */
+  color: var(--cream) !important;
+  -webkit-text-fill-color: var(--cream) !important;
   text-shadow: none !important;
+  font-size: 10px !important;
+  font-family: var(--font-body) !important;
+  letter-spacing: 0.25em !important;
+  opacity: 0.9 !important;
 }
 
 /* 03: SHARED SECTIONS */
@@ -533,7 +539,7 @@ body::before, body::after {
   
   .hero-content .bismillah {
     margin-top: 8vh !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 14px !important; /* MICRO-POLISH */
     font-size: 28px !important;
   }
   
@@ -558,7 +564,7 @@ body::before, body::after {
   
   .hero-content .hero-names h1,
   .hero-content .hero-names h2 {
-    font-size: clamp(65px, 18vw, 85px) !important;
+    font-size: clamp(60px, 16vw, 76px) !important; /* MICRO-POLISH */
   }
   
   .hero-content .ampersand {
