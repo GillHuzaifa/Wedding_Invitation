@@ -344,10 +344,10 @@ body::before, body::after {
   opacity: 0.8 !important;
 }
 .event-card {
-  background: var(--light-cream) !important;
+  background: var(--dark-mehroon) !important;
   border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
-  color: var(--text-dark) !important;
+  color: var(--light-cream) !important;
 }
 .event-card::after {
   border-color: rgba(198, 161, 91, 0.2) !important;
@@ -356,7 +356,7 @@ body::before, body::after {
   color: var(--gold-accent) !important;
 }
 .event-card h3 {
-  color: var(--deep-mehroon) !important;
+  color: var(--cream) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
   font-size: clamp(24px, 5vw, 32px) !important;
@@ -367,14 +367,14 @@ body::before, body::after {
   background: var(--line-divider) !important;
 }
 .event-venue {
-  color: var(--dark-mehroon) !important;
+  color: var(--light-cream) !important;
   opacity: 0.9 !important;
 }
 .event-card-combined .event-subevent strong {
-  color: var(--deep-mehroon) !important;
+  color: var(--cream) !important;
 }
 .event-hosts {
-  color: var(--dark-mehroon) !important;
+  color: var(--light-cream) !important;
   opacity: 0.9 !important;
 }
 
@@ -426,7 +426,7 @@ body::before, body::after {
 }
 .venues .section-subtitle { opacity: 0.8 !important; }
 .venue-card {
-  background: var(--light-cream) !important;
+  background: var(--dark-mehroon) !important;
   border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
 }
@@ -434,7 +434,7 @@ body::before, body::after {
   color: var(--gold-accent) !important;
 }
 .venue-copy h3 {
-  color: var(--deep-mehroon) !important;
+  color: var(--cream) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
   font-size: clamp(26px, 6vw, 34px) !important;
@@ -442,12 +442,12 @@ body::before, body::after {
   margin-bottom: 8px !important;
 }
 .venue-copy strong {
-  color: var(--deep-mehroon) !important;
+  color: var(--cream) !important;
   text-shadow: none !important;
   font-weight: 500 !important;
 }
 .venue-address {
-  color: var(--text-dark) !important;
+  color: var(--light-cream) !important;
   text-shadow: none !important;
   opacity: 0.8 !important;
 }
