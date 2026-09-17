@@ -5,17 +5,21 @@ LUXURY INVITATION REDESIGN SYSTEM
 */
 
 :root {
-  /* COLOR SYSTEM: Ivory + Champagne + Muted Gold */
-  --bg-primary: #FDFBF7;
-  --bg-secondary: #F7F3EA;
-  --bg-accent: #F2EBE1;
-  --gold-accent: #B89E6E;
-  --gold-light: #D4C3A3;
-  --gold-muted: #8E7A5A;
-  --text-dark: #2A2826;
-  --text-muted: #6B6358;
-  --line-divider: rgba(184, 158, 110, 0.4);
-  --shadow-soft: 0 12px 40px rgba(42, 40, 38, 0.08);
+  /* COLOR SYSTEM: Deep Mehroon + Cream + Subtle Gold */
+  --mehroon: #641C2B;
+  --deep-mehroon: #4A1320;
+  --dark-mehroon: #351019;
+  
+  --cream: #F8F1E7;
+  --light-cream: #FCF8F1;
+  
+  --gold-accent: #C6A15B;
+  --gold-muted: #A38448;
+  
+  --text-dark: #2B171A;
+  
+  --line-divider: rgba(198, 161, 91, 0.4);
+  --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.25);
 
   /* TYPOGRAPHY */
   --font-heading: "Cormorant Garamond", Georgia, serif;
@@ -26,11 +30,11 @@ LUXURY INVITATION REDESIGN SYSTEM
 
 /* OVERRIDE BODY */
 html {
-  background-color: var(--bg-primary) !important;
+  background-color: var(--deep-mehroon) !important;
 }
 body {
-  background: var(--bg-primary) !important;
-  color: var(--text-dark) !important;
+  background: var(--deep-mehroon) !important;
+  color: var(--cream) !important;
   font-family: var(--font-body) !important;
 }
 
@@ -40,39 +44,39 @@ body::before, body::after {
 
 /* 01: LUXURY ENVELOPE (OPENING) */
 .opening {
-  background: var(--bg-primary) !important;
+  background: var(--deep-mehroon) !important;
 }
 .opening::before, .opening::after {
   border-color: var(--line-divider) !important;
 }
 .opening.is-revealing {
-  background: var(--bg-secondary) !important;
+  background: var(--dark-mehroon) !important;
 }
 .envelope-back, .envelope-front, .envelope-flap {
-  background: var(--bg-accent) !important;
-  border-color: var(--line-divider) !important;
+  background: var(--mehroon) !important;
+  border-color: var(--gold-accent) !important;
 }
 .envelope-paper {
-  background: #FFFFFF !important;
-  border-color: var(--line-divider) !important;
+  background: var(--light-cream) !important;
+  border-color: var(--gold-accent) !important;
   color: var(--text-dark) !important;
   box-shadow: var(--shadow-soft) !important;
 }
 .wax-seal {
-  background: var(--gold-accent) !important;
-  border-color: #FFFFFF !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
-  color: #FFFFFF !important;
+  background: var(--dark-mehroon) !important;
+  border-color: var(--gold-accent) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+  color: var(--gold-accent) !important;
 }
 .envelope-paper p {
-  color: var(--text-muted) !important;
+  color: var(--mehroon) !important;
   letter-spacing: 0.3em !important;
   font-size: 10px !important;
   text-transform: uppercase !important;
   margin-bottom: 5px !important;
 }
 .envelope-paper strong {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-size: clamp(38px, 6vw, 46px) !important;
   letter-spacing: 0.08em !important;
@@ -87,26 +91,27 @@ body::before, body::after {
   font-family: var(--font-body) !important;
 }
 .tap-hint {
-  color: var(--text-muted) !important;
+  color: var(--cream) !important;
+  opacity: 0.8 !important;
 }
 
 /* 02: MAIN CINEMATIC CARD */
 .card-hero, .hero-card {
-  background: var(--bg-primary) !important;
+  background: var(--deep-mehroon) !important;
 }
 .hero-card {
   border-radius: 0 !important;
-  border: 1px solid var(--line-divider) !important;
+  border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
 }
 .hero-video {
-  /* Keep video but remove the heavy red filter */
-  filter: saturate(0.85) contrast(1.1) brightness(1.1) !important;
-  opacity: 0.25 !important; /* Make it subtle to serve as animated texture */
-  background: var(--bg-primary) !important;
+  /* Soften the video in the dark mehroon background */
+  filter: saturate(0.85) contrast(1.1) brightness(0.6) !important;
+  opacity: 0.3 !important;
+  background: var(--dark-mehroon) !important;
 }
 .hero-vignette {
-  background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(253, 251, 247, 0.6) 40%, var(--bg-primary) 100%) !important;
+  background: linear-gradient(180deg, var(--deep-mehroon) 0%, rgba(74, 19, 32, 0.4) 40%, var(--deep-mehroon) 100%) !important;
 }
 .hero-scene::after {
   display: none !important;
@@ -115,10 +120,10 @@ body::before, body::after {
   border: 1px solid var(--line-divider) !important;
 }
 .hero-frame::before {
-  border: 1px solid rgba(184, 158, 110, 0.15) !important;
+  border: 1px solid rgba(198, 161, 91, 0.2) !important;
 }
 .hero-light {
-  background: radial-gradient(circle at 50% 48%, rgba(255,255,255,0.7), transparent 17%, rgba(255,255,255,0.3) 32%, transparent 52%) !important;
+  background: radial-gradient(circle at 50% 48%, rgba(252, 248, 241, 0.15), transparent 30%, transparent 100%) !important;
 }
 
 /* Fix Bismillah Alignment and Spacing */
@@ -128,23 +133,23 @@ body::before, body::after {
 }
 .hero-content .bismillah {
   font-family: var(--font-arabic) !important;
-  color: var(--text-dark) !important;
+  color: var(--gold-accent) !important;
   font-size: clamp(32px, 4vw, 46px) !important;
   text-shadow: none !important;
   -webkit-text-stroke: 0 !important;
-  -webkit-text-fill-color: var(--text-dark) !important;
+  -webkit-text-fill-color: var(--gold-accent) !important;
   margin-bottom: 6px !important; /* Extremely tight gap */
   letter-spacing: normal !important;
   font-weight: 500 !important;
 }
 .hero-content .eyebrow {
   font-family: var(--font-body) !important;
-  color: var(--text-muted) !important;
+  color: var(--cream) !important;
   font-size: clamp(12px, 1.2vw, 14px) !important;
   font-weight: 500 !important;
   text-shadow: none !important;
   -webkit-text-stroke: 0 !important;
-  -webkit-text-fill-color: var(--text-muted) !important;
+  -webkit-text-fill-color: var(--cream) !important;
   letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   margin-bottom: 16px !important;
@@ -167,14 +172,14 @@ body::before, body::after {
   opacity: 0.8 !important;
 }
 .hero-content .family-invite {
-  color: var(--text-dark) !important;
+  color: var(--light-cream) !important;
   font-family: var(--font-heading) !important;
   font-size: clamp(15px, 1.6vw, 18px) !important;
   font-weight: 400 !important;
   line-height: 1.6 !important;
   text-shadow: none !important;
   -webkit-text-stroke: 0 !important;
-  -webkit-text-fill-color: var(--text-dark) !important;
+  -webkit-text-fill-color: var(--light-cream) !important;
   margin: 0 auto 50px !important;
   max-width: 580px !important;
   text-align: center !important;
@@ -191,48 +196,48 @@ body::before, body::after {
 }
 .hero-content .hero-names h1, .hero-content .hero-names h2 {
   font-family: var(--font-script) !important;
-  color: var(--text-dark) !important;
+  color: var(--light-cream) !important;
   font-size: clamp(75px, 14vw, 140px) !important;
   text-shadow: none !important;
-  -webkit-text-fill-color: var(--text-dark) !important;
+  -webkit-text-fill-color: var(--light-cream) !important;
   line-height: 0.9 !important;
   font-weight: 400 !important;
 }
 .hero-content .ampersand {
   font-family: var(--font-heading) !important;
-  color: var(--gold-muted) !important;
+  color: var(--gold-accent) !important;
   font-size: clamp(28px, 4vw, 42px) !important;
   text-shadow: none !important;
-  -webkit-text-fill-color: var(--gold-muted) !important;
+  -webkit-text-fill-color: var(--gold-accent) !important;
   margin: 10px 0 !important;
   font-style: italic !important;
   font-weight: 300 !important;
   opacity: 0.8 !important;
 }
 .hero-content .parent-line {
-  color: var(--text-muted) !important;
+  color: var(--cream) !important;
   font-family: var(--font-heading) !important;
   font-size: clamp(14px, 1.6vw, 16px) !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
   text-shadow: none !important;
   -webkit-text-stroke: 0 !important;
-  -webkit-text-fill-color: var(--text-muted) !important;
+  -webkit-text-fill-color: var(--cream) !important;
   margin-top: 15px !important;
 }
 .hero-content .hero-scroll {
-  color: var(--text-muted) !important;
-  -webkit-text-fill-color: var(--text-muted) !important;
+  color: var(--gold-accent) !important;
+  -webkit-text-fill-color: var(--gold-accent) !important;
   text-shadow: none !important;
 }
 
 /* 03: SHARED SECTIONS */
 .section-shell {
-  background: var(--bg-primary) !important;
+  background: var(--light-cream) !important;
 }
 .section-title {
   font-family: var(--font-heading) !important;
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
   font-weight: 400 !important;
   font-size: clamp(30px, 6vw, 48px) !important;
   letter-spacing: 0.01em !important;
@@ -248,7 +253,8 @@ body::before, body::after {
   text-transform: uppercase !important;
 }
 .section-subtitle {
-  color: var(--text-muted) !important;
+  color: var(--text-dark) !important;
+  opacity: 0.8 !important;
   font-family: var(--font-body) !important;
   font-size: clamp(13px, 1.5vw, 15px) !important;
   margin-top: 20px !important;
@@ -264,10 +270,10 @@ body::before, body::after {
 
 /* 04: SCRATCH REVEAL */
 .reveal-date {
-  background: var(--bg-primary) !important;
+  background: var(--cream) !important;
 }
 .scratch-card {
-  background: #FFFFFF !important;
+  background: var(--light-cream) !important;
   border-color: var(--line-divider) !important;
   box-shadow: var(--shadow-soft) !important;
 }
@@ -275,36 +281,44 @@ body::before, body::after {
   border-color: var(--line-divider) !important;
 }
 .scratch-underlay {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
 }
 .scratch-underlay strong {
   color: var(--gold-accent) !important;
 }
 .revealed-date {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
 }
 .scratch-status {
-  color: var(--text-muted) !important;
+  color: var(--text-dark) !important;
+  opacity: 0.7 !important;
 }
 
 /* 05: CELEBRATIONS / EVENTS */
 .celebrations {
-  background: var(--bg-secondary) !important;
+  background: var(--deep-mehroon) !important;
+}
+.celebrations .section-title {
+  color: var(--cream) !important;
+}
+.celebrations .section-subtitle {
+  color: var(--cream) !important;
+  opacity: 0.8 !important;
 }
 .event-card {
-  background: #FFFFFF !important;
-  border: 1px solid var(--line-divider) !important;
+  background: var(--light-cream) !important;
+  border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
   color: var(--text-dark) !important;
 }
 .event-card::after {
-  border-color: rgba(184, 158, 110, 0.15) !important;
+  border-color: rgba(198, 161, 91, 0.2) !important;
 }
 .event-number, .event-date, .event-time-card {
   color: var(--gold-accent) !important;
 }
 .event-card h3 {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
   font-size: clamp(24px, 5vw, 32px) !important;
@@ -315,48 +329,51 @@ body::before, body::after {
   background: var(--line-divider) !important;
 }
 .event-venue {
-  color: var(--text-muted) !important;
+  color: var(--dark-mehroon) !important;
+  opacity: 0.9 !important;
 }
 .event-card-combined .event-subevent strong {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
 }
 .event-hosts {
-  color: var(--text-muted) !important;
+  color: var(--dark-mehroon) !important;
+  opacity: 0.9 !important;
 }
 
 /* 06: TIMELINE */
 .timeline-section {
-  background: var(--bg-primary) !important;
+  background: var(--cream) !important;
 }
 .timeline-emblem, .script-title {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
 }
 .timeline::before {
   background: var(--line-divider) !important;
 }
 .timeline-dot {
   border-color: var(--gold-accent) !important;
-  background: #FFFFFF !important;
-  box-shadow: 0 0 0 4px rgba(184, 158, 110, 0.15) !important;
+  background: var(--light-cream) !important;
+  box-shadow: 0 0 0 4px rgba(198, 161, 91, 0.15) !important;
 }
 .timeline-date {
   color: var(--gold-accent) !important;
 }
 .timeline-body h3 {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
   font-size: clamp(22px, 5vw, 30px) !important;
   margin-bottom: 5px !important;
 }
 .timeline-subitem strong {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 500 !important;
   font-size: 18px !important;
 }
 .timeline-body p {
-  color: var(--text-muted) !important;
+  color: var(--text-dark) !important;
+  opacity: 0.8 !important;
 }
 .timeline-time {
   color: var(--text-dark) !important;
@@ -364,18 +381,22 @@ body::before, body::after {
 
 /* 07: VENUES */
 .venues {
-  background: var(--bg-secondary) !important;
+  background: var(--deep-mehroon) !important;
 }
+.venues .section-title, .venues .section-subtitle {
+  color: var(--cream) !important;
+}
+.venues .section-subtitle { opacity: 0.8 !important; }
 .venue-card {
-  background: #FFFFFF !important;
-  border-color: var(--line-divider) !important;
+  background: var(--light-cream) !important;
+  border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
 }
 .venue-index, .venue-time, .qr-wrap {
   color: var(--gold-accent) !important;
 }
 .venue-copy h3 {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
   font-size: clamp(26px, 6vw, 34px) !important;
@@ -383,13 +404,14 @@ body::before, body::after {
   margin-bottom: 8px !important;
 }
 .venue-copy strong {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
   text-shadow: none !important;
   font-weight: 500 !important;
 }
 .venue-address {
-  color: var(--text-muted) !important;
+  color: var(--text-dark) !important;
   text-shadow: none !important;
+  opacity: 0.8 !important;
 }
 .venue-subdivider {
   background: var(--line-divider) !important;
@@ -398,17 +420,17 @@ body::before, body::after {
   border-color: var(--line-divider) !important;
 }
 .location-btn {
-  border-color: var(--gold-accent) !important;
-  color: var(--text-dark) !important;
+  border: 1px solid var(--gold-accent) !important;
+  color: var(--deep-mehroon) !important;
   background: transparent !important;
 }
 .location-btn:hover {
-  background: rgba(184, 158, 110, 0.1) !important;
+  background: rgba(198, 161, 91, 0.1) !important;
 }
 
 /* 08: COUNTDOWN */
 .countdown-section {
-  background: var(--bg-primary) !important;
+  background: var(--cream) !important;
 }
 .countdown-card {
   border-color: var(--line-divider) !important;
@@ -417,30 +439,32 @@ body::before, body::after {
   border-color: var(--line-divider) !important;
 }
 .countdown strong {
-  color: var(--text-dark) !important;
+  color: var(--deep-mehroon) !important;
   font-family: var(--font-heading) !important;
   font-weight: 400 !important;
 }
 .countdown span {
-  color: var(--text-muted) !important;
+  color: var(--text-dark) !important;
+  opacity: 0.8 !important;
   letter-spacing: 0.15em !important;
 }
 .countdown-note {
-  color: var(--text-muted) !important;
+  color: var(--text-dark) !important;
+  opacity: 0.8 !important;
 }
 
 /* 09: CLOSING */
 .closing {
-  background: var(--bg-secondary) !important;
+  background: var(--deep-mehroon) !important;
 }
 .closing-card {
-  color: var(--text-dark) !important;
+  color: var(--cream) !important;
 }
 .closing-ornament, .closing-rule span {
   color: var(--gold-accent) !important;
 }
 .closing-card h2 {
-  color: var(--text-dark) !important;
+  color: var(--light-cream) !important;
   font-family: var(--font-script) !important;
   font-size: clamp(55px, 10vw, 85px) !important;
   font-weight: 400 !important;
@@ -451,12 +475,13 @@ body::before, body::after {
   margin-bottom: 8px !important;
 }
 .closing-card p {
-  color: var(--text-muted) !important;
+  color: var(--cream) !important;
   margin-top: 20px !important;
   margin-bottom: clamp(32px, 6vw, 54px) !important;
 }
 .closing-card > span {
-  color: var(--text-muted) !important;
+  color: var(--cream) !important;
+  opacity: 0.8 !important;
 }
 .closing-rule {
   margin-top: clamp(35px, 6vw, 45px) !important;
@@ -467,13 +492,13 @@ body::before, body::after {
 
 /* OTHER FIXES */
 .music-control {
-  background: rgba(255,255,255,0.8) !important;
-  border-color: var(--line-divider) !important;
-  color: var(--gold-accent) !important;
+  background: rgba(74, 19, 32, 0.8) !important;
+  border-color: var(--gold-accent) !important;
+  color: var(--cream) !important;
   box-shadow: var(--shadow-soft) !important;
 }
 .petal {
-  background: rgba(212, 195, 163, 0.4) !important;
+  background: rgba(198, 161, 91, 0.3) !important;
 }
 .hero-corner {
   border-color: var(--line-divider) !important;
