@@ -47,16 +47,6 @@ const weddingConfig = {
       time: "7:00 PM",
       address: "Khayaban-e-Suhrwardy, opposite the Convention Centre, Sector G-5/1, Islamabad, Pakistan",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Serena+Shamadan+Khayaban-e-Suhrwardy+Islamabad"
-    },
-    {
-      date: "27 December 2026",
-      shortDate: "27 DEC",
-      name: "Valima",
-      venue: "Bani Gala Rawal Marquee",
-      timelineVenue: "Bani Gala Rawal Marquee",
-      time: "3:00 PM",
-      address: "A Q Khan Rd, Bani Gala",
-      mapUrl: "https://www.google.com/maps/search/?api=1&query=Bani+Gala+Rawal+Marquee+A+Q+Khan+Rd+Bani+Gala"
     }
   ],
 

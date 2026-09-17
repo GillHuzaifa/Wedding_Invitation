@@ -109,8 +109,7 @@
     const venueQrAssets = [
       "assets/qr/nikah.png",
       "assets/qr/mehndi.png",
-      "assets/qr/baraat.png",
-      "assets/qr/valima.png"
+      "assets/qr/baraat.png"
     ];
     const qrBlock = (eventIndex, event) => `
       <div class="venue-location-tools">
