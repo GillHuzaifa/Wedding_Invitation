@@ -344,7 +344,7 @@ body::before, body::after {
   opacity: 0.8 !important;
 }
 .event-card {
-  background: var(--dark-mehroon) !important;
+  background: var(--mehroon) !important;
   border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
   color: var(--light-cream) !important;
@@ -426,7 +426,7 @@ body::before, body::after {
 }
 .venues .section-subtitle { opacity: 0.8 !important; }
 .venue-card {
-  background: var(--dark-mehroon) !important;
+  background: var(--mehroon) !important;
   border: 1px solid var(--gold-muted) !important;
   box-shadow: var(--shadow-soft) !important;
 }
