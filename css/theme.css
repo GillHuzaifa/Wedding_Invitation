@@ -278,26 +278,55 @@ body::before, body::after {
 .reveal-date {
   background: var(--cream) !important;
 }
+.reveal-date.section-shell {
+  min-height: max-content !important; /* MICRO-POLISH: Remove huge empty gap */
+  padding-top: clamp(50px, 8vh, 80px) !important;
+  padding-bottom: clamp(50px, 8vh, 80px) !important;
+}
 .scratch-card {
   background: var(--light-cream) !important;
   border-color: var(--line-divider) !important;
   box-shadow: var(--shadow-soft) !important;
+  width: 100% !important;
+  max-width: 560px !important;
+  aspect-ratio: 1.62 !important;
+  min-height: 200px !important; /* Fallback for Safari */
+  margin: 30px auto !important;
+  position: relative !important;
+  display: block !important;
+  touch-action: none !important; /* Guarantee smooth interaction */
 }
 .scratch-card::before {
   border-color: var(--line-divider) !important;
 }
 .scratch-underlay {
   color: var(--deep-mehroon) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  width: 100% !important;
+  padding: 15px !important;
+  box-sizing: border-box !important;
 }
 .scratch-underlay strong {
   color: var(--gold-accent) !important;
+  font-size: clamp(14px, 4vw, 18px) !important;
+  margin: 8px 0 !important;
 }
 .revealed-date {
   color: var(--deep-mehroon) !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(24px, 6vw, 36px) !important;
+  line-height: 1.1 !important;
 }
 .scratch-status {
   color: var(--text-dark) !important;
-  opacity: 0.7 !important;
+  opacity: 0.8 !important;
+  font-size: 13px !important;
+  margin-top: 5px !important;
+  letter-spacing: 0.05em !important;
 }
 
 /* 05: CELEBRATIONS / EVENTS */
@@ -612,7 +641,7 @@ html, body {
   }
 
   .event-card, .venue-card, .scratch-card {
-    margin: 0 15px !important;
-    width: auto !important;
+    margin: 0 auto 30px !important;
+    width: calc(100% - 30px) !important;
   }
 }

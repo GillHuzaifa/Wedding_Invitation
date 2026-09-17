@@ -245,63 +245,126 @@
     const card = $("#scratchCard");
     const status = $("#scratchStatus");
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    
     let drawing = false;
     let revealed = false;
     let last = null;
+    let cardRect = card.getBoundingClientRect();
+    let paths = []; // Store normalized paths for responsive resizing
+    let isClick = false; // to distinguish tap from drag
 
-    function resizeCanvas() {
-      const rect = card.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      canvas.style.width = rect.width + "px";
-      canvas.style.height = rect.height + "px";
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      paintCover(rect.width, rect.height);
-    }
+    status.textContent = "Scratch gently or tap to reveal";
 
-    function paintCover(width, height) {
-      ctx.globalCompositeOperation = "source-over";
-      const gradient = ctx.createLinearGradient(0, 0, width, height);
+    function drawCover(targetCtx, w, h) {
+      targetCtx.globalCompositeOperation = "source-over";
+      const gradient = targetCtx.createLinearGradient(0, 0, w, h);
       gradient.addColorStop(0, "#6e1930");
       gradient.addColorStop(0.48, "#9c3850");
       gradient.addColorStop(1, "#5a1026");
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
-      ctx.fillStyle = "rgba(255,220,170,.12)";
-      for (let x = 0; x < width; x += 18) ctx.fillRect(x, 0, 1, height);
-      ctx.strokeStyle = "rgba(231,194,118,.55)";
-      ctx.lineWidth = 1;
-      ctx.strokeRect(12, 12, width - 24, height - 24);
-      ctx.fillStyle = "rgba(255,246,228,.9)";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.font = "600 12px DM Sans, sans-serif";
-      ctx.fillText("SCRATCH TO REVEAL", width / 2, height / 2 - 4);
-      ctx.font = "400 10px DM Sans, sans-serif";
-      ctx.fillStyle = "rgba(255,246,228,.68)";
-      ctx.fillText("A little something is waiting", width / 2, height / 2 + 21);
+      targetCtx.fillStyle = gradient;
+      targetCtx.fillRect(0, 0, w, h);
+      targetCtx.fillStyle = "rgba(255,220,170,.12)";
+      for (let x = 0; x < w; x += 18) targetCtx.fillRect(x, 0, 1, h);
+      targetCtx.strokeStyle = "rgba(231,194,118,.55)";
+      targetCtx.lineWidth = 1;
+      targetCtx.strokeRect(12, 12, w - 24, h - 24);
+      targetCtx.fillStyle = "rgba(255,246,228,.9)";
+      targetCtx.textAlign = "center";
+      targetCtx.textBaseline = "middle";
+      targetCtx.font = "600 12px DM Sans, sans-serif";
+      targetCtx.fillText("SCRATCH TO REVEAL", w / 2, h / 2 - 4);
+      targetCtx.font = "400 10px DM Sans, sans-serif";
+      targetCtx.fillStyle = "rgba(255,246,228,.68)";
+      targetCtx.fillText("A little something is waiting", w / 2, h / 2 + 21);
     }
 
+    function resizeCanvas() {
+      if (revealed) return;
+      const rect = card.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
+      cardRect = rect;
+      
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const cw = Math.floor(rect.width * dpr);
+      const ch = Math.floor(rect.height * dpr);
+      
+      canvas.width = cw;
+      canvas.height = ch;
+      canvas.style.width = rect.width + "px";
+      canvas.style.height = rect.height + "px";
+      
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      drawCover(ctx, rect.width, rect.height);
+      
+      // Replay existing scratch paths
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      
+      for (const line of paths) {
+        ctx.lineWidth = line.size * rect.width;
+        ctx.beginPath();
+        ctx.moveTo(line.x1 * rect.width, line.y1 * rect.height);
+        ctx.lineTo(line.x2 * rect.width, line.y2 * rect.height);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(line.x2 * rect.width, line.y2 * rect.height, ctx.lineWidth / 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    const observer = new ResizeObserver(() => requestAnimationFrame(resizeCanvas));
+    observer.observe(card);
+
     function pointFromEvent(event) {
-      const rect = canvas.getBoundingClientRect();
-      const source = event.touches ? event.touches[0] : event;
-      return { x: source.clientX - rect.left, y: source.clientY - rect.top };
+      // Calculate properly relative to the exact bounding client rect
+      const rect = card.getBoundingClientRect();
+      return { 
+        x: event.clientX - rect.left, 
+        y: event.clientY - rect.top 
+      };
+    }
+
+    function doReveal() {
+      if (revealed) return;
+      revealed = true;
+      observer.disconnect();
+      canvas.classList.add("fully-revealed");
+      card.classList.add("revealed");
+      status.textContent = "21st December 2026 · Nikkah & Mehndi · 3:00 PM";
+      status.style.opacity = "1";
+      setTimeout(() => { canvas.style.opacity = "0"; canvas.style.pointerEvents = "none"; }, 500);
     }
 
     function scratch(event) {
       if (!drawing || revealed) return;
-      event.preventDefault();
       const point = pointFromEvent(event);
+      
+      // If the user moved more than 3 pixels, it's a drag not a tap
+      if (isClick && last && (Math.abs(point.x - last.x) > 3 || Math.abs(point.y - last.y) > 3)) {
+        isClick = false;
+      }
+      
+      const currentSize = Math.max(40, cardRect.width * 0.12);
       ctx.globalCompositeOperation = "destination-out";
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
-      ctx.lineWidth = Math.max(34, canvas.getBoundingClientRect().width * 0.095);
+      ctx.lineWidth = currentSize;
+
       if (last) {
         ctx.beginPath();
         ctx.moveTo(last.x, last.y);
         ctx.lineTo(point.x, point.y);
         ctx.stroke();
+        
+        // Save normalized path
+        paths.push({
+          x1: last.x / cardRect.width,
+          y1: last.y / cardRect.height,
+          x2: point.x / cardRect.width,
+          y2: point.y / cardRect.height,
+          size: currentSize / cardRect.width
+        });
       }
       ctx.beginPath();
       ctx.arc(point.x, point.y, ctx.lineWidth / 2, 0, Math.PI * 2);
@@ -311,26 +374,42 @@
     }
 
     function checkReveal() {
+      if (paths.length % 5 !== 0) return; // check less frequently to boost performance
       const sample = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
       let transparent = 0;
       const step = 16;
       for (let i = 3; i < sample.length; i += step * 4) if (sample[i] < 40) transparent++;
       const total = sample.length / (step * 4);
-      if (transparent / total > 0.46) {
-        revealed = true;
-        canvas.classList.add("fully-revealed");
-        card.classList.add("revealed");
-        status.textContent = "21st December 2026 · Nikkah & Mehndi · Nikkah 3:00 PM · Mehndi 5:00 PM";
-        setTimeout(() => { canvas.style.opacity = "0"; }, 500);
-      }
+      if (transparent / total > 0.40) doReveal();
     }
 
-    canvas.addEventListener("pointerdown", (e) => { drawing = true; last = pointFromEvent(e); scratch(e); });
-    canvas.addEventListener("pointermove", scratch);
-    window.addEventListener("pointerup", () => { drawing = false; last = null; });
-    canvas.addEventListener("touchstart", (e) => e.preventDefault(), { passive: false });
-    canvas.addEventListener("touchmove", scratch, { passive: false });
-    window.addEventListener("resize", () => { if (!revealed) resizeCanvas(); });
+    canvas.addEventListener("pointerdown", (e) => { 
+      if (e.button && e.button !== 0) return; // only left click
+      drawing = true; 
+      isClick = true;
+      last = pointFromEvent(e); 
+      cardRect = card.getBoundingClientRect(); // update rect on down
+      scratch(e); 
+      e.target.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener("pointermove", (e) => {
+      if (drawing) {
+        e.preventDefault(); 
+        scratch(e);
+      }
+    });
+    canvas.addEventListener("pointerup", (e) => { 
+      drawing = false; 
+      last = null; 
+      e.target.releasePointerCapture(e.pointerId);
+      if (isClick && !revealed) doReveal(); // Fallback tap-to-reveal
+    });
+    canvas.addEventListener("pointercancel", (e) => { 
+      drawing = false; 
+      last = null; 
+      isClick = false;
+    });
+
     resizeCanvas();
   }
 
